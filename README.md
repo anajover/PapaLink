@@ -1,4 +1,4 @@
-# NAME OF YOUR PROYECT
+# PapaLink
 
 
 ## [See the Game]()
@@ -6,55 +6,104 @@ NOTE: above link will be added later
 
 # Description
 
-Add here a simple description of your game.
+PapaLink is a side-scrolling game where the player has to move the hero in all directions while walk across a stage killing enemies, 2 minibosses and 1 final boss, that will appear on the right side of the screen. The game end when the heroe dies or when you get the princess after defeating the boss.
 
-# Main Functionalities
+# MVP (DOM - CANVAS)
 
-- List here the main functionalities your game will have
+- game has one hero and one enemy.
+- enemy kill by touch.
+- enemies appear randomly from the right of the screen.
+- death of the hero is Game Over.
+- game end when you kill the boss and rescue the princess.
+- hero kill with the sword.
 
-# Backlog Functionalities
+# Backlog
 
-- List here the cool (but not essential) functionalities your game could have
+- Number of lives
+- animated characters
+- sound and music
+- scores by points recolected from the dead enemies and the scenario.
+- difficulty incremented with more enemy spawn.
+- scenario change with bosses.
+- jump skill and atacks in middle air. (with flying enemies)
+- enemies movement randomly and attacks when they see you.
 
 # Proyect Structure
 
-- List here the JS files you think you might need. 
-- One main.js to manage DOM elements, one for Game class and one for each other class.
-- Recommended: Inside each file you can list the functions, clases, properties and methods you will need.
 
-Example:
 
 ## main.js
 
-- startGame()
+- startGame () {
+    splashScreen display
+    canvas display
+    new game
+}
+- keyPress () {
+    player movement
+}
+- buttonsEvents ()
 
 ## game.js
 
 - Game () {
-    this.player;
+    this.background;
+    this.hero;
+    this.enemy;
+    this.isGameOn;
+    
 }
 - gameLoop () {}
-- checkCollisions () {}
+- checkCollisions (with enemies) {}
 
-## player.js 
+## hero.js 
 
-- Player () {
+- Hero () {
     this.x;
     this.y;
     this.w;
     this.h;
 }
-- drawPlayer () {}
-- movePlayer () {}
+- drawHero () {}
+- moveHero () {}
+
+## enemy.js
+
+- Enemy () {
+    this.x;
+    this.y;
+    this.w;
+    this.h;
+}
+- drawEnemy () {}
+- moveEnemy () {}
 
 # States and Transitions
 
-- List here the different pages your game will have. For example: Start Screen, Game Screen, Win Screen, etc.
+- splashScreen
+- gameScreen
+- gameOver&Retry Screen
+- winScreen
 
 # Tasks (Optional)
 
-- List of individual Tasks you will need to finish the game from zero to an amazing game!
-- Note: If using Trello or github proyect to keep track of tasks, then you can remove this section.
+- main - buildDom
+- main - buildSplashScreen
+- main - addEventListener
+- main - buildGameScreen
+- main - buildGameOverScreen
+- game - startLoop
+- game - buildCanvas
+- game - updateCanvas
+- game - drawCanvas
+- hero - draw
+- hero - move
+- game - addEnemy
+- enemy - draw
+- enemy - move
+- game - checkCollision
+- game - GameOver
+- game - addEventListener
 
 # Extra Links (The links can be added later when available)
 
