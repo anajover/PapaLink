@@ -1,5 +1,3 @@
-NOTE: to copy this readme structure simply click on RAW on the top right of this gist. There you have the content in the basic Markdown syntax used in readme files. Then paste it on a README.md file in your repository. Always do this directly from VS code, not from github.
-
 # NAME OF YOUR PROYECT
 
 
