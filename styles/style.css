@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    background-color: green;
+  }
+  
+  #game-screen {
+    background-color: lightgoldenrodyellow;
+    border: 5px solid black;
+    border-radius: 10px;
+  }
+  
+  #start-btn, #restart-btn {
+    background-color: darkgreen;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+    margin-top: 40px;
+    border-radius: 10px; 
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+  }
+  
+  #game-screen, #gameover-screen {
+    display: none;
+  }
