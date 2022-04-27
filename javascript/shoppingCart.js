@@ -142,3 +142,61 @@ class Objects3 {
           }
       }
 }
+
+class Legs {
+
+  constructor (xParam) {
+    this.x = xParam;
+    this.y = 250;
+    this.w = 977;
+    this.h = 51;
+    this.img = new Image();
+    this.img.src = "./images/patas-estanteria.png"
+    this.speed = 1;
+    
+  }
+
+  //metodos
+  drawLegs = () => {
+    ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
+  };
+
+  //movimiento
+  movBackground = () => {
+    if (this.x + this.w < 0) {
+      this.x = canvas.width;
+    } else {
+      this.x -= this.speed;
+    }
+  };
+
+  
+
+}
+
+class Fries {
+
+  constructor (xParam) {
+    this.x = xParam;
+    this.y = 150;
+    this.w = 76;
+    this.h = 100;
+    this.img = new Image();
+    this.img.src = "./images/fries.png"
+    this.speed = 1;
+  }
+
+  //metodos
+  drawLegs = () => {
+    ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
+  };
+
+  // movimiento
+  movFries = () => {
+    if (this.x + this.w < 0) {
+      this.x = canvas.width;
+    } else {
+      this.x -= this.speed;
+    }
+  }
+};

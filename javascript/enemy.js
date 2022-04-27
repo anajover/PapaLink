@@ -35,7 +35,7 @@ class Pear extends Enemy {
     constructor (x, y, h, speed, w, img) {
         super(x, y, h, speed);
     this.w = 102;
-    this.img =new Image();
+    this.img = new Image();
     this.img.src = "./images/pear-enemy.png";
     }
 }
