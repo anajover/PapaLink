@@ -86,8 +86,18 @@ class Game {
         this.hero.h + this.hero.y > eachEnemy.y &&
         this.heroShow === false
       ) {
+        let enemies = [
+            new Banana(),
+            new Pear(),
+            new Banana(),
+            new Pear(),
+            new Banana(),
+            new Pear(),
+          ];
+        let randomNumber = Math.floor(Math.random() * (enemies.length - 1));
+        let newEnemy = enemies[randomNumber];
         this.enemyArr.splice(i, 1);
-        this.enemyArr.push(new Banana);
+        this.enemyArr.push(newEnemy);
       }
     });
   };
