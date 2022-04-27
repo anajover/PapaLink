@@ -1,6 +1,7 @@
 // GLOBAL VARIABLES
 console.log("probando");
 const startBtn = document.querySelector("#start-btn");
+const restartBtn = document.querySelector("#restart-btn");
 const splashScreen = document.querySelector("#splash-screen");
 const gameOverScreen = document.querySelector("#gameover-screen");
 const canvas = document.querySelector("#game-screen");
@@ -12,6 +13,7 @@ let game;
 const startGame = () => {
     console.log("iniciando juego");
     splashScreen.style.display= "none";
+    gameOverScreen.style.display = "none"
     canvas.style.display = "block";
 
     game = new Game();
@@ -30,13 +32,21 @@ const keyPress = (event) => {
         console.log("saltando")
             game.hero.jumpHero();
     }
-     else if (event.code === "ControlRight") {
+     else if (event.code === "KeyC") {
         game.hero.fightHero();
     }
 }
 
+
+
+
 // ADD EVENT LISTENERS
 startBtn.addEventListener("click", startGame);
+restartBtn.addEventListener("click", startGame);
 
 window.addEventListener("keydown", keyPress);
+
+
+
+
 

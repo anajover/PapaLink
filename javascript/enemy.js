@@ -1,6 +1,6 @@
 class Enemy {
 
-    constructor(wProperty, srcParam) {
+    constructor() {
         this.x = canvas.width;
         this.y = 300;
         // this.w = wProperty;
