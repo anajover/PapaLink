@@ -3,10 +3,7 @@ class Enemy {
     constructor() {
         this.x = canvas.width;
         this.y = 300;
-        // this.w = wProperty;
         this.h = 150;
-        // this.img = new Image()
-        // this.img.src = srcParam
         this.speed = 2;
     }
 
@@ -41,4 +38,3 @@ class Pear extends Enemy {
 }
 
 
-// 80 y 102

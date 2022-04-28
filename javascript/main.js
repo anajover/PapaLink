@@ -29,14 +29,16 @@ const keyPress = (event) => {
     if (event.code === "ArrowRight") {
         console.log("apretando adelante");
         game.hero.forwardHero();
-    } else if (event.code === "ArrowLeft") {
+    } 
+    if (event.code === "ArrowLeft") {
         console.log("apretando atrás");
         game.hero.backwardHero();
-    } else if (event.code === "Space") {
+    }
+    if (event.code === "Space") {
         console.log("saltando")
             game.hero.jumpHero();
     }
-     else if (event.code === "KeyC") {
+    if (event.code === "KeyC") {
         game.hero.fightHero();
     }
 }

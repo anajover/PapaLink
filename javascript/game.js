@@ -14,12 +14,11 @@ class Game {
     this.objects3 = new Objects3();
     this.legs1 = new Legs(0);
     this.legs2 = new Legs(canvas.width);
-    // this.enemies = [new Banana, new Pear];
-    // this.heroArr = [new Hero("./images/hero.png", 135), new Hero("./images/hero-fight.png", 209)];
+    this.potatoLifeArr = [new PotatoLife(800), new PotatoLife(850), new PotatoLife(900)]
     this.isGameOn = true;
     this.heroShow = true;
     this.score = 0;
-    // this.noKill = false;
+    
   }
 
   addNewEnemies = () => {
@@ -35,10 +34,7 @@ class Game {
       let randomNumber = Math.floor(Math.random() * (enemies.length - 1));
       let newEnemy = enemies[randomNumber];
 
-      // this.enemyArr.push(newEnemy);
-      // console.log(this.enemyArr);
-
-      // let newEnemy = new Banana;
+      
 
       this.enemyArr.push(newEnemy);
       console.log("se añade elemento a la Array");
@@ -79,15 +75,7 @@ class Game {
 
   
 
-//   addFries = () => {
-//       let newFrie = this.fries.drawFries();
-//       this.friesArr.push(newFrie);
-//   }
 
-//   addNewFries = () => {
-//       let randomNumber = Math.floor(Math.random() * (15));
-//       setInterval(this.addFries(), randomNumber);
-//   }
 
 
   
@@ -95,24 +83,35 @@ class Game {
 
   gameOverCollision = () => {
     this.enemyArr.forEach((eachEnemy, i) => {
-      // if (
-        // this.hero.x < eachEnemy.x + eachEnemy.w &&
-        // this.hero.x + this.hero.w2 > eachEnemy.x &&
-        // this.hero.y < eachEnemy.y + eachEnemy.h &&
-        // this.hero.h + this.hero.y > eachEnemy.y
-
-      //     this.heroShow === false)
-      // {
-      //     console.log("muerto")
-      //     this.enemyArr.splice(i, 1);
-
-      // }else
+      
       if (
         this.hero.x < eachEnemy.x + eachEnemy.w &&
         this.hero.x + this.hero.w1 > eachEnemy.x &&
         this.hero.y < eachEnemy.y + eachEnemy.h &&
         this.hero.h + this.hero.y > eachEnemy.y &&
-        this.heroShow === true
+        this.heroShow === true && this.potatoLifeArr.length !== 0
+      ) { 
+        let enemies = [
+          new Banana(),
+          new Pear(),
+          new Banana(),
+          new Pear(),
+          new Banana(),
+          new Pear(),
+        ];
+        this.potatoLifeArr.pop();
+        this.enemyArr.splice(i, 1);
+        let randomNumber = Math.floor(Math.random() * (enemies.length - 1));
+        let newEnemy = enemies[randomNumber];
+        this.enemyArr.push(newEnemy);
+        
+      }
+      else if (
+        this.hero.x < eachEnemy.x + eachEnemy.w &&
+        this.hero.x + this.hero.w1 > eachEnemy.x &&
+        this.hero.y < eachEnemy.y + eachEnemy.h &&
+        this.hero.h + this.hero.y > eachEnemy.y &&
+        this.heroShow === true && this.potatoLifeArr.length === 0
       ) {
         console.log("colisionando");
 
@@ -154,11 +153,10 @@ class Game {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // 2. acciones o movimientos de los elementos
-    // this.hero.forwardHero();
-    // this.hero.backwardHero();
+   
     this.hero.heroMoves();
     this.hero.gravityHero();
-    // this.heroSword.fightHero();
+    
 
     this.addNewEnemies();
     this.enemyArr.forEach((eachEnemy) => {
@@ -174,11 +172,8 @@ class Game {
     
 
     this.gameOverCollision();
-    // this.killEnemy();
+    
 
-    // this.hero.gravityHero();
-    // this.hero.jumpHero();
-    // this.legs.repLegs();
     this.shoppingCart.movShoppingCart();
     this.objects1.movObjects1();
     this.objects2.movObjects2();
@@ -197,10 +192,14 @@ class Game {
     this.objects2.drawObjects2();
     this.objects3.drawObjects3();
     this.shoppingCart.drawShoppingCart(); 
-    // this.fries.drawFries();
+    
     this.friesArr.forEach((eachFries) => {
         eachFries.drawFries();
     })
+
+    this.potatoLifeArr.forEach((eachPotato) => {
+      eachPotato.drawPotatoLife();
+    });
 
 
        
@@ -210,7 +209,7 @@ class Game {
     this.enemyArr.forEach((eachEnemy) => {
       eachEnemy.drawEnemy();
     });
-    //  this.drawHeroes();
+    
 
     if (this.heroShow === true) {
       this.hero.drawHero1();
@@ -218,11 +217,7 @@ class Game {
       this.hero.drawHero2();
     }
 
-    // this.hero.drawHero1();
-
-    // this.heroSword.drawHeroSword();
-
-    // this.enemy.drawEnemy();
+ 
 
     // 4. control y recursion
     if (this.isGameOn) {

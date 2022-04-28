@@ -1,36 +1,3 @@
-// class objects {
-    
-//     constructor (xParam, yParam, wParam, hParam, srcParam){
-//         this.x = xParam;
-//         //900
-//         this.y = yParam;
-//         //200
-//         this.w = wParam;
-//         //149
-//         this.h = hParam;
-//         //150
-//         this.img = new Image();
-//         this.img.src = srcParam;
-//         //"./images/shopping-cart.png"
-//         this.speed = 2;
-//     }
-
-//     //metodos del shopping cart
-//     drawObject = () => {
-//         ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
-//       };
-
-//     //movimientos del shopping cart
-//     movObject = (xParam) => {
-//         if (this.x > 0) {
-//             this.x -=this.speed;
-//         } else if (this.x < 0){
-//             this.x = xParam;
-//         }
-//     }
-
-// }
-
 class ShoppingCart {
 
     constructor () {

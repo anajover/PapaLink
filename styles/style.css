@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: green;
+    background-color: #20803E;
   }
   
   #game-screen {
@@ -10,7 +10,7 @@ body {
   }
   
   #start-btn, #restart-btn {
-    background-color: darkgreen;
+    background-color: #05531E;
     color: white;
     padding: 20px;
     font-size: 20px;
