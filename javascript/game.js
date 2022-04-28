@@ -68,9 +68,18 @@ class Game {
                  {
                     this.friesArr.splice(i, 1);
                     this.score++
+                    patataSound.play();
                 }
         })
         
+    }
+
+    difficultLevel = () => {
+      this.enemyArr.forEach((eachEnemy) => { 
+        if (this.score >= 50) {
+          eachEnemy.speed = 5;
+        }
+      })
     }
 
   
@@ -104,6 +113,7 @@ class Game {
         let randomNumber = Math.floor(Math.random() * (enemies.length - 1));
         let newEnemy = enemies[randomNumber];
         this.enemyArr.push(newEnemy);
+        hitSound.play();
         
       }
       else if (
@@ -121,6 +131,10 @@ class Game {
         canvas.style.display = "none";
         //3. la pantalla final aparece
         gameOverScreen.style.display = "flex";
+        //4 suena música de game Over
+        gameSound.pause();
+        deadSound.load();
+        deadSound.play();
       } 
       else if (
         this.hero.x < eachEnemy.x + eachEnemy.w &&
@@ -167,6 +181,7 @@ class Game {
         eachFrie.movFries();
     });
     this.friesPoints();
+    this.difficultLevel();
 
    
     
