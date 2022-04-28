@@ -4,8 +4,11 @@ const startBtn = document.querySelector("#start-btn");
 const restartBtn = document.querySelector("#restart-btn");
 const splashScreen = document.querySelector("#splash-screen");
 const gameOverScreen = document.querySelector("#gameover-screen");
+const score = document.querySelector("#score-show")
+const scoreDOM = document.querySelector("#score");
 const canvas = document.querySelector("#game-screen");
 const ctx = canvas.getContext("2d");
+
 
 let game;
 
@@ -15,6 +18,7 @@ const startGame = () => {
     splashScreen.style.display= "none";
     gameOverScreen.style.display = "none"
     canvas.style.display = "block";
+    score.style.display = "flex"
 
     game = new Game();
     console.log(game);

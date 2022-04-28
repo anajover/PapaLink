@@ -4,8 +4,8 @@ class Game {
     this.bg = new Image();
     this.bg.src = "./images/super-bg.png";
     this.hero = new Hero();
-    this.fries = new Fries(canvas.width);
-    this.friesArr = [new Fries(canvas.width)];
+    this.fries = new Fries();
+    this.friesArr = [new Fries()];
     this.enemyArr = [new Banana()];
     this.Banana = new Banana();
     this.shoppingCart = new ShoppingCart();
@@ -18,6 +18,7 @@ class Game {
     // this.heroArr = [new Hero("./images/hero.png", 135), new Hero("./images/hero-fight.png", 209)];
     this.isGameOn = true;
     this.heroShow = true;
+    this.score = 0;
     // this.noKill = false;
   }
 
@@ -47,7 +48,50 @@ class Game {
     }
   };
 
-//   addFries
+
+  addNewFries = () => {
+        let randomIntervalFries = Math.floor(Math.random() * canvas.width);
+        if (this.friesArr[this.friesArr.length - 1].x < randomIntervalFries - 200) {
+            
+            let newFries = new Fries();
+            this.friesArr.push(newFries);
+            
+        
+        }
+           
+    };
+
+    friesPoints = () => {
+        this.friesArr.forEach((eachFrie, i) => {
+            if (
+                this.hero.x < eachFrie.x + eachFrie.w &&
+                this.hero.x + this.hero.w1 > eachFrie.x &&
+                this.hero.y < eachFrie.y + eachFrie.h &&
+                this.hero.h + this.hero.y > eachFrie.y
+                )
+                 {
+                    this.friesArr.splice(i, 1);
+                    this.score++
+                }
+        })
+        
+    }
+
+  
+
+//   addFries = () => {
+//       let newFrie = this.fries.drawFries();
+//       this.friesArr.push(newFrie);
+//   }
+
+//   addNewFries = () => {
+//       let randomNumber = Math.floor(Math.random() * (15));
+//       setInterval(this.addFries(), randomNumber);
+//   }
+
+
+  
+
 
   gameOverCollision = () => {
     this.enemyArr.forEach((eachEnemy, i) => {
@@ -98,6 +142,7 @@ class Game {
         let newEnemy = enemies[randomNumber];
         this.enemyArr.splice(i, 1);
         this.enemyArr.push(newEnemy);
+        this.score++
       }
     });
   };
@@ -119,6 +164,14 @@ class Game {
     this.enemyArr.forEach((eachEnemy) => {
       eachEnemy.moveEnemy();
     });
+    this.addNewFries();
+    this.friesArr.forEach((eachFrie) => {
+        eachFrie.movFries();
+    });
+    this.friesPoints();
+
+   
+    
 
     this.gameOverCollision();
     // this.killEnemy();
@@ -133,6 +186,9 @@ class Game {
     this.legs1.movBackground();
     this.legs2.movBackground();
 
+
+    scoreDOM.innerText = Math.floor(this.score)
+
     // 3. dibujar los elementos
     ctx.drawImage(this.bg, 0, 0, canvas.width, canvas.height);
     this.legs1.drawLegs();
@@ -140,7 +196,16 @@ class Game {
     this.objects1.drawObjects1();
     this.objects2.drawObjects2();
     this.objects3.drawObjects3();
-    this.shoppingCart.drawShoppingCart();
+    this.shoppingCart.drawShoppingCart(); 
+    // this.fries.drawFries();
+    this.friesArr.forEach((eachFries) => {
+        eachFries.drawFries();
+    })
+
+
+       
+    
+    
 
     this.enemyArr.forEach((eachEnemy) => {
       eachEnemy.drawEnemy();

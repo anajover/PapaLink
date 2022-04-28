@@ -176,27 +176,27 @@ class Legs {
 
 class Fries {
 
-  constructor (xParam) {
-    this.x = xParam;
-    this.y = 150;
-    this.w = 76;
-    this.h = 100;
+  constructor () {
+    this.x = canvas.width;
+    this.y = 120;
+    this.w = 61;
+    this.h = 80;
     this.img = new Image();
     this.img.src = "./images/fries.png"
     this.speed = 1;
   }
 
   //metodos
-  drawLegs = () => {
+  drawFries = () => {
     ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
   };
 
   // movimiento
   movFries = () => {
-    if (this.x + this.w < 0) {
-      this.x = canvas.width;
-    } else {
       this.x -= this.speed;
-    }
   }
+
+ 
+
+ 
 };
