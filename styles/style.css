@@ -20,6 +20,16 @@ body {
     margin-top: 40px;
     border-radius: 10px; 
   }
+
+  #score-show {
+    background-color: #05531E;
+    color: white;
+    padding: 5px;
+    font-size: 15px;
+    margin-top: 15px;
+    border-radius: 10px; 
+  }
+  
   
   .container {
     display: flex;

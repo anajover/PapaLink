@@ -1,12 +1,9 @@
 # PapaLink
 
 
-## [See the Game]()
-NOTE: above link will be added later
-
 # Description
 
-PapaLink is a side-scrolling game where the player has to move the hero in all directions while walk across a stage killing enemies, 2 minibosses and 1 final boss, that will appear on the right side of the screen. The game end when the heroe dies or when you get the princess after defeating the boss.
+PapaLink is a side-scrolling game where the player has to move the hero in all directions while walk across a stage killing enemies, and 1 final boss, that will appear on the right side of the screen. The game end when the heroe dies or when you get the princess after defeating the boss.
 
 # MVP (DOM - CANVAS)
 
@@ -34,27 +31,53 @@ PapaLink is a side-scrolling game where the player has to move the hero in all d
 
 ## main.js
 
+/GLOBAL VARIABLES
+//MUSIC
 - startGame () {
     splashScreen display
+	gameOverScreen display
     canvas display
-    new game
-}
-- keyPress () {
-    player movement
-}
+    score display
+    new game 
+    gameloop()}
+
+//BUTTON ACTIONS
 - buttonsEvents ()
+
+//KEYBOARD MOVEMENTS
+ - keyPress()
 
 ## game.js
 
+//GAME PROPERTIES
 - Game () {
     this.background;
     this.hero;
+    this.princess;
+    this.fries;
     this.enemy;
+    this.boss;
+    this.objects;
+    this.lifes;
     this.isGameOn;
-    
+    this.variablesVarias;
 }
-- gameLoop () {}
-- checkCollisions (with enemies) {}
+
+- addNewEnemies()
+- addBoss()
+- addNewFries()
+- friesPoints()
+- difficultLevel()
+- gameOverCollision()
+- bossCollision()
+- winnerGame()
+- winnerScreen()
+- gameLoop () {
+//DELETE CANVAS
+//ACTION OR MOVEMENTS
+//DRAW ELEMENTS
+//CONTROL AND RECURSION
+}
 
 ## hero.js 
 
@@ -67,6 +90,17 @@ PapaLink is a side-scrolling game where the player has to move the hero in all d
 - drawHero () {}
 - moveHero () {}
 
+- PotatoLife ()
+
+## princess.js
+
+- Princess () {
+    this.x;
+    this.y;
+    this.w;
+    this.h;
+- drawPrincess ()
+
 ## enemy.js
 
 - Enemy () {
@@ -78,6 +112,19 @@ PapaLink is a side-scrolling game where the player has to move the hero in all d
 - drawEnemy () {}
 - moveEnemy () {}
 
+- Banana () {}
+- Pear () {}
+- Boss () {}
+
+## shoppingCart.js
+
+- shoppingCart {}
+- Objects1 {}
+- Objects2 {}
+- Objects3 {}
+- Legs {}
+- Fries {}
+
 # States and Transitions
 
 - splashScreen
@@ -85,30 +132,12 @@ PapaLink is a side-scrolling game where the player has to move the hero in all d
 - gameOver&Retry Screen
 - winScreen
 
-# Tasks (Optional)
 
-- main - buildDom
-- main - buildSplashScreen
-- main - addEventListener
-- main - buildGameScreen
-- main - buildGameOverScreen
-- game - startLoop
-- game - buildCanvas
-- game - updateCanvas
-- game - drawCanvas
-- hero - draw
-- hero - move
-- game - addEnemy
-- enemy - draw
-- enemy - move
-- game - checkCollision
-- game - GameOver
-- game - addEventListener
-
-# Extra Links (The links can be added later when available)
-
-### Trello
-[Link url](https://trello.com/b/CWviY2zv/kraken-brigade-project)
+# Links 
+URls for the project repo and deploy
+[Link Repo](https://github.com/anajover/PapaLink.git)
+[Link Deploy]((https://anajover.github.io/PapaLink/))
 
 ### Slides
-[Link Slides.com](https://docs.google.com/presentation/d/138o01hAz-0gXepN78RsDgse12HiiuN7Fz_N_hJnI9_g/edit?usp=sharing)
+URls for the poject presentation (slides)
+[Link Slides.com](https://docs.google.com/presentation/d/1draQVAJFNMBFAtKIaCCEiFc8Tu036Su-kaKthSWnd-Q/edit?usp=sharing)

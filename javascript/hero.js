@@ -54,13 +54,13 @@ class Hero {
   };
 
   fightHero = () => {
-    console.log("pegando");
+    // console.log("pegando");
     let heroSword = () => {
       game.heroShow = true;
     };
 
     game.heroShow = false;
-    console.log(game.heroShow);
+    // console.log(game.heroShow);
     setTimeout(heroSword, 500);
   };
 }

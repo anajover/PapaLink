@@ -27,6 +27,7 @@ class Game {
     this.bossDead = false;
     this.princessOn = false;
     this.score = 0;
+    this.count = 0;
     this.bossX = 0;
   }
 
@@ -43,16 +44,17 @@ class Game {
       let randomNumber = Math.floor(Math.random() * (enemies.length - 1));
       let newEnemy = enemies[randomNumber];
 
+      this.count++;
       this.enemyArr.push(newEnemy);
-      console.log("se añade elemento a la Array");
+      // console.log("se añade elemento a la Array");
       this.enemyArr.shift();
-      console.log("Se quita elemento primero de la Array");
+      // console.log("Se quita elemento primero de la Array");
       console.log(this.enemyArr);
     }
   };
 
   addBoss = () => {
-    if (this.score > 50) {
+    if (this.count > 20) {
       this.bossShow = true;
     }
   };
@@ -83,9 +85,9 @@ class Game {
   difficultLevel = () => {
     this.enemyArr.forEach((eachEnemy) => {
       if (this.score >= 50) {
-        eachEnemy.speed = 5;
+        eachEnemy.speed = 3;
       } else if (this.score >= 100) {
-        eachEnemy.speed = 6;
+        eachEnemy.speed = 5;
       }
     });
   };
@@ -108,6 +110,7 @@ class Game {
           new Banana(),
           new Pear(),
         ];
+        this.count++;
         this.potatoLifeArr.pop();
         this.enemyArr.splice(i, 1);
         let randomNumber = Math.floor(Math.random() * (enemies.length - 1));
@@ -122,7 +125,7 @@ class Game {
         this.heroShow === true &&
         this.potatoLifeArr.length === 0
       ) {
-        console.log("colisionando");
+        // console.log("colisionando");
 
         //1. STOP THE GAME
         this.isGameOn = false;
@@ -154,6 +157,7 @@ class Game {
         this.enemyArr.splice(i, 1);
         this.enemyArr.push(newEnemy);
         this.score += 5;
+        this.count++
       }
     });
   };
@@ -180,7 +184,7 @@ class Game {
       this.heroShow === true &&
       this.potatoLifeArr.length === 0
     ) {
-      console.log("colisionando");
+      // console.log("colisionando");
 
       //1. el juego se detiene
       this.isGameOn = false;
@@ -213,7 +217,7 @@ class Game {
       this.heroShow === false &&
       this.bossDead === true
     ) {
-      console.log("muerto");
+      // console.log("muerto");
       this.boss.x = 0 - this.boss.w;
       this.score += 20;
       this.princessOn = true;
@@ -223,14 +227,18 @@ class Game {
   winnerGame = () => {
     if (this.princessOn === true) {
       this.isGameOn = false;
-      canvas.style.display = "none";
-      winnerScreen.style.display = "flex";
+
       gameSound.pause();
     }
   };
 
+  winnerScreen = () => {
+    canvas.style.display = "none";
+    winnerScreen.style.display = "flex";
+  }
+
   gameLoop = () => {
-    console.log("juego ejecutandose");
+    // console.log("juego ejecutandose");
 
     // 1.DELETE CANVAS
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -261,10 +269,10 @@ class Game {
     this.gameOverCollision();
 
     if (this.princessOn === true) {
-      this.isGameOn = false;
-      this.end = true;
+      this.winnerGame();
+      setInterval(this.winnerScreen, 5000);
     }
-    this.winnerGame();
+  
 
     this.shoppingCart.movShoppingCart();
     this.objects1.movObjects1();

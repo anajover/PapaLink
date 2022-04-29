@@ -25,7 +25,7 @@ gameSound.load();
 
 //SWORD SOUND
 let swordSound = new Audio("./sounds/sword.wav");
-swordSound.volume = 1;
+swordSound.volume = 0.7;
 swordSound.preload = "auto";
 swordSound.load();
 
@@ -43,7 +43,7 @@ jumpSound.load();
 
 //GAMEOVER SOUND
 let deadSound = new Audio("./sounds/dead.wav");
-deadSound.volume = 0.5;
+deadSound.volume = 0.6;
 deadSound.preload = "auto";
 deadSound.load();
 
@@ -55,7 +55,7 @@ hitSound.load();
 
 // STATE MANAGEMENT FUNCTIONS
 const startGame = () => {
-  console.log("iniciando juego");
+  // console.log("iniciando juego");
   splashScreen.style.display = "none";
   gameOverScreen.style.display = "none";
   canvas.style.display = "block";
@@ -65,10 +65,11 @@ const startGame = () => {
   gameSound.play();
 
   game = new Game();
-  console.log(game);
+  // console.log(game);
   game.gameLoop();
 };
 
+// INSTRUCTIONS BUTTON
 const instructions = () => {
   splashScreen.style.display = "none";
   gameOverScreen.style.display = "none";
@@ -77,6 +78,7 @@ const instructions = () => {
   instScreen.style.display = "flex";
 };
 
+// GOHOME BUTTON
 const goHome = () => {
   splashScreen.style.display = "flex";
   gameOverScreen.style.display = "none";
@@ -85,17 +87,18 @@ const goHome = () => {
   instScreen.style.display = "none";
 };
 
+//KEYBOARD MOVEMENTS
 const keyPress = (event) => {
   if (event.code === "ArrowRight") {
-    console.log("apretando adelante");
+    // console.log("apretando adelante");
     game.hero.forwardHero();
   }
   if (event.code === "ArrowLeft") {
-    console.log("apretando atrás");
+    // console.log("apretando atrás");
     game.hero.backwardHero();
   }
   if (event.code === "Space") {
-    console.log("saltando");
+    // console.log("saltando");
     game.hero.jumpHero();
     jumpSound.play();
   }

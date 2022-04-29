@@ -12,4 +12,6 @@ class Princess {
   drawPrincess = () => {
     ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
   };
+
+ 
 }
