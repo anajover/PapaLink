@@ -13,7 +13,6 @@ class Hero {
     this.jump = 250;
     this.gravity = 2;
     this.groundLevel = 450;
-    
   }
 
   //metodos del heroe
@@ -23,7 +22,7 @@ class Hero {
 
   drawHero2 = () => {
     ctx.drawImage(this.img2, this.x, this.y, this.w2, this.h);
-  }
+  };
 
   //movimientos del  heroe
   forwardHero = () => {
@@ -33,72 +32,51 @@ class Hero {
   backwardHero = () => {
     this.x -= this.speed;
   };
-  
+
   jumpHero = () => {
     if (this.y + this.h === this.groundLevel) {
-    this.y -= this.jump;
-  }
+      this.y -= this.jump;
+    }
   };
-  
+
   gravityHero = () => {
-    
     if (this.y + this.h < this.groundLevel) {
       this.y += this.gravity;
     }
-  }
+  };
 
   heroMoves = () => {
     if (this.x < 0) {
       this.x = 0;
     } else if (this.x > canvas.width - this.w1) {
       this.x = canvas.width - this.w1;
-    } 
-  }
-
-  fightHero = () => {
-    
-      console.log("pegando")
-      let heroSword = () => {
-        game.heroShow = true;
-      
-      }
-    
-    game.heroShow = false;
-    console.log(game.heroShow) 
-    setTimeout(heroSword, 500);
-    
-     
+    }
   };
 
-  
+  fightHero = () => {
+    console.log("pegando");
+    let heroSword = () => {
+      game.heroShow = true;
+    };
+
+    game.heroShow = false;
+    console.log(game.heroShow);
+    setTimeout(heroSword, 500);
+  };
 }
 
 class PotatoLife {
-  constructor (xParam) {
+  constructor(xParam) {
     this.x = xParam;
     this.y = 25;
     this.w = 36;
     this.h = 50;
     this.img = new Image();
     this.img.src = "./images/potato-life.png";
-    
   }
-  
+
   //metodos
   drawPotatoLife = () => {
     ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
-  }
-
-  
+  };
 }
-
-
- 
-  
-
-
-
-
-
-
-

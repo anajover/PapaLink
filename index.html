@@ -14,8 +14,19 @@
         <!-- SPLASH SCREEN -->
         <div id ="splash-screen" class="container">
             <img src="./images/stargame-image.png" width="800" alt="StarGame Image">
-            <button id="start-btn">Start Adventure</button>
+            <div id = "initial-buttons">
+                <button id="start-btn">Start Adventure</button>
+                <button id="inst-btn">Instructions</button>
+            </div>
         </div>
+
+        <!-- INSTRUCTIONS SCREEN -->
+        <div id ="inst-screen" class="container">
+            <img src="./images/instructions.png" width="600px" alt="Instructions">
+            <button id="home-btn">Home!</button>
+            
+        </div>
+
 
         <!-- GAME SCREEN -->
         <div id="score-show"><h1>SCORE: </h1><h1 id="score">0</h1></div>
@@ -26,6 +37,14 @@
             <img src="./images/gameover.png" width="977" alt="GameOver Image">
             
             <button id="restart-btn">Try Again!</button>
+            
+        </div>
+
+
+         <!-- WINNER SCREEN -->
+         <div id="winner-screen" class="container">
+            <img src="./images/winner-screen.png" width="800" alt="Winner Image">
+            
         </div>
 
     </div>
@@ -33,6 +52,7 @@
     <script src="./javascript/main.js"></script>
     <script src="./javascript/game.js"></script>
     <script src="./javascript/hero.js"></script>
+    <script src="./javascript/princess.js"></script>
     <script src="./javascript/enemy.js"></script>
     <script src="./javascript/shoppingCart.js"></script>
     

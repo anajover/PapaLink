@@ -9,7 +9,10 @@ body {
     border-radius: 10px;
   }
   
-  #start-btn, #restart-btn {
+  #start-btn, 
+  #restart-btn, 
+  #inst-btn, 
+  #home-btn {
     background-color: #05531E;
     color: white;
     padding: 20px;
@@ -26,8 +29,33 @@ body {
     margin: 50px;
   }
   
-  #game-screen, #gameover-screen, #score-show {
+  #game-screen, 
+  #gameover-screen, 
+  #score-show, 
+  #inst-screen,
+  #winner-screen {
     display: none;
   }
 
+  #start-btn {
+    margin-right: 50px;
+  }
+
+  #initial-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+  }
+
+  #splash-screen img {
+    border: 5px solid black;
+    border-radius: 15px;
+  }
+
+  #winner-screen img {
+    border: 5px solid black;
+    border-radius: 15px;
+  }
  
