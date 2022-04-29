@@ -11,7 +11,7 @@ class Hero {
     this.img2.src = "./images/hero-fight.png";
     this.speed = 20;
     this.jump = 250;
-    this.gravity = 2;
+    this.gravity = 3;
     this.groundLevel = 450;
   }
 
